@@ -60,7 +60,6 @@ class APIFacebookTargeting(BaseFacebookTargeting):
     def search(self, *args, **kwargs):
         params = copy.deepcopy(self.base_attrs)
         params.update(kwargs)
-        print params
         result = fbapi.call(method=self.method, path=self.path, params = params)
         return result.json()
 

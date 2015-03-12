@@ -15,7 +15,8 @@ def get_types():
         data["name"] = targeting_name
         data["attrs"] = targeting.search_params
         data["classify"] = targeting.classify
-        print data
+        result.append(result)
+    return result
 
 def get_options(targeting_name, search_params={}):
     return get_targeting(targeting_name).options(**search_params)
@@ -24,4 +25,3 @@ def get_targeting(targeting_name):
     return getattr(targetings, targeting_name)
 
 
-print get_options("interests")
