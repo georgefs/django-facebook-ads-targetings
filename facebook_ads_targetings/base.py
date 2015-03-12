@@ -4,7 +4,8 @@
 # Copyright © 2015 vagrant 
 #
 # Distributed under terms of the MIT license.
-from facebook_auth import *
+import facebook_login
+facebook_login.initialize()
 from facebookads.api import FacebookAdsApi
 import copy
 
