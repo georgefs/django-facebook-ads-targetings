@@ -11,7 +11,9 @@ python setup.py install
 usage
 ---
 https://developers.facebook.com/docs/marketing-api/targeting-specs/v2.2#interests
+
 拿interests 的targeting 來做範例
+
 ```python
 In [1]: from facebook_ads_targetings import *
 
