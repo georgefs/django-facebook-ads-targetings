@@ -1,9 +1,6 @@
 
 install
 ---
-requirement
-`https://github.com/rasca0027/django_facebook_server_login`
-
 
 ```bash
 git clone git@github.com:georgefs/django-facebook-ads-targetings.git
