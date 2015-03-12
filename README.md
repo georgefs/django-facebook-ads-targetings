@@ -1,3 +1,7 @@
+why
+---
+facebook ads targeting 的結構還頗複雜.. 我們又需要把targeting 的選項拿出來, 所以特別做這包
+
 
 install
 ---
@@ -29,3 +33,8 @@ In [5]: print interests_targeting.options()  ## 取AdSet 的 interests 的 targe
 [{'name': u'Cosmetics', 'value': {'id': u'6002839660079', 'name': u'Cosmetics'}}, {'name': u'Science', 'value': {'id': u'6002866718622', 'name': u'Science'}} ... ]
 
 ```
+
+search 就是 search api 後的result
+option 就是把search 後的結果取出 adset targeting 設定的部分, 並做成[{key:key, value:value}, ..] 方便做option
+
+
