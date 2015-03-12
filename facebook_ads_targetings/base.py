@@ -33,14 +33,14 @@ class APIFacebookTargeting(BaseFacebookTargeting):
     path = ["search"]
     method = "POST"
     base_attrs = {}
-    def __init__(self,  key, opt_key, opt_value, path=None, search_params=[], classify="",method="GET", base_attrs={}, *args, **kwargs):
-        self.path = path or self.path
+    def __init__(self, opt_key, opt_value, path=["search"], method="GET", base_attrs={}, *args, **kwargs):
+        self.path = path
         self.method = method.upper().strip()
         self.base_attrs.update(base_attrs)
         self.opt_key = opt_key
         self.opt_value = opt_value
         assert self.method in ('GET', 'POST', 'PUT', 'DELETE')
-        super(APIFacebookTargeting, self).__init__(key, search_params, classify)
+        super(APIFacebookTargeting, self).__init__(*args, **kwargs)
         pass
 
     def parser_value(self, data):
@@ -72,8 +72,8 @@ class APIFacebookTargeting(BaseFacebookTargeting):
 
 class SimpleFacebookTargeting(BaseFacebookTargeting):
     _options = ()
-    def __init__(self, key, options=(),search_params=[], classify=""):
-        super(SimpleFacebookTargeting, self).__init__(key, search_params, classify)
+    def __init__(self, options=(), *args, **kwargs):
+        super(SimpleFacebookTargeting, self).__init__(*args, **kwargs)
         self._options = options
 
     def search(self):
@@ -86,7 +86,7 @@ class SimpleFacebookTargeting(BaseFacebookTargeting):
 class AdCategoryTargeting(APIFacebookTargeting):
     method = "POST"
     base_attrs = {"class":"", "type":"adTargetingCategory"}
-    def __init__(self, key, path=None, method="GET", base_attrs={}, search_params=[], classify="", opt_key="name", opt_value=["id", "name"], *args, **kwargs):
+    def __init__(self, key, method="GET", opt_key="name", opt_value=["id", "name"], *args, **kwargs):
         self.base_attrs['class'] = key
-        super(AdCategoryTargeting, self).__init__(key=key, opt_key=opt_key, opt_value=opt_value, path=path, search_params=search_params, classify=classify,method=method, base_attrs=base_attrs, *args, **kwargs)
+        super(AdCategoryTargeting, self).__init__(key=key, method=method, opt_key=opt_key, opt_value=opt_value, *args, **kwargs)
         self.base_attrs = copy.deepcopy(self.base_attrs)
