@@ -36,4 +36,4 @@ In [5]: print interests_targeting.options()  ## 取AdSet 的 interests 的 targe
 
 search 就是 search api 後的result
 
-option 就是把search 後的結果取出 adset targeting 設定的部分, 並做成[{key:key, value:value}, ..] 方便做option
+option 就是把search 後的結果取出 adset targeting 設定的部分, 並做成[{name:name, value:value}, ..] 方便做option
