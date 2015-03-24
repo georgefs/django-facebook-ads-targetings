@@ -12,6 +12,14 @@ cd django-facebook-ads-targetings
 python setup.py install
 ```
 
+add to `settings.py`:
+```
+INSTALLED_APPS = (
+    ...
+    'facebook_ads_targetings'
+)
+```
+
 usage
 ---
 https://developers.facebook.com/docs/marketing-api/targeting-specs/v2.2#interests
@@ -37,3 +45,9 @@ In [5]: print interests_targeting.options()  ## 取AdSet 的 interests 的 targe
 search 就是 search api 後的result
 
 option 就是把search 後的結果取出 adset targeting 設定的部分, 並做成[{name:name, value:value}, ..] 方便做option
+
+get_type():
+```python
+>>> import facebook_ads_targetings
+>>> facebook_ads_targetings.get_types()
+```
